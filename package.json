@@ -1,0 +1,20 @@
+{
+  "name": "url-select",
+  "description": "Turns a stream of URLs into an interactive menu that opens the selected URL in your browser.",
+  "version": "0.0.0",
+  "repository": {
+    "url": "git://github.com/noffle/url-select.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test/*.js"
+  },
+  "dependencies": {
+    "line-stream": "0.0.3",
+    "opn": "^3.0.2",
+    "ttys": "0.0.3"
+  },
+  "devDependencies": {
+    "tape": "*"
+  }
+}
