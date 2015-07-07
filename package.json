@@ -16,6 +16,7 @@
     "concat-stream": "^1.5.0",
     "get-urls": "^5.0.0",
     "opn": "^3.0.2",
+    "terminal-menu": "^2.1.1",
     "ttys": "0.0.3"
   },
   "devDependencies": {
