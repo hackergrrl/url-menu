@@ -1,7 +1,10 @@
 {
-  "name": "url-select",
-  "description": "Turns a stream of URLs into an interactive menu that opens the selected URL in your browser.",
+  "name": "url-menu",
+  "description": "Turns a stream of text on stdin containing URLs into an interactive menu that opens the selected URL in your browser.",
   "version": "0.0.0",
+  "bin": {
+    "url-menu": "./bin/cmd.js"
+  }
   "repository": {
     "url": "git://github.com/noffle/url-select.git"
   },
