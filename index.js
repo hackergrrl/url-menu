@@ -1,29 +1,29 @@
-var linestream = require('line-stream')
+var getUrls = require('get-urls')
+var concat = require('concat-stream')
 var Menu = require('terminal-menu')
-var fs = require('fs')
 var ttys = require('ttys')
 var opn = require('opn')
 
-function setupMenu(items, width) {
+function setupMenu (items, width) {
   var title = 'BEEP. SELECT URL, HUMAN.\n'
   width = Math.max(width, title.length)
 
-  menu = Menu({x:1, y:1, width:width})
+  var menu = Menu({x: 1, y: 1, width: width})
   menu.reset()
-  menu.write(title);
-  menu.write('------------------------\n');
+  menu.write(title)
+  menu.write('------------------------\n')
   for (var i in items) {
     menu.add(items[i])
   }
 
-  menu.on('select', function(url) {
+  menu.on('select', function (url) {
     console.dir(url)
     menu.close()
     opn(url)
   })
 
   menu.on('close', function () {
-    ttys.stdin.setRawMode(false);
+    ttys.stdin.setRawMode(false)
     ttys.stdin.end()
   })
 
@@ -31,16 +31,17 @@ function setupMenu(items, width) {
   ttys.stdin.pipe(menu.createStream()).pipe(process.stdout)
 }
 
-(function() {
+(function () {
   var items = []
   var longestLine = 0
 
-  var lines = process.stdin.pipe(linestream())
-  lines.on('data', function(line) {
-    items.push(line)
-    longestLine = Math.max(longestLine, line.length)
-  })
-  lines.on('end', function() {
+  process.stdin.pipe(concat(function (text) {
+    var urls = getUrls(text.toString())
+    for (var i in urls) {
+      var url = urls[i]
+      items.push(url)
+      longestLine = Math.max(longestLine, url.length)
+    }
     setupMenu(items, longestLine)
-  })
+  }))
 })()

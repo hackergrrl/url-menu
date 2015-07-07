@@ -7,14 +7,16 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "tape test/*.js"
+    "test": "standard && tape test/*.js"
   },
   "dependencies": {
-    "line-stream": "0.0.3",
+    "concat-stream": "^1.5.0",
+    "get-urls": "^5.0.0",
     "opn": "^3.0.2",
     "ttys": "0.0.3"
   },
   "devDependencies": {
+    "standard": "^4.5.2",
     "tape": "*"
   }
 }
