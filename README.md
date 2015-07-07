@@ -4,6 +4,10 @@
 
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 
+## Screenshot
+
+![](https://github.com/noffle/noffle.github.io/blob/master/screenshots/url-menu.png?raw=true)
+
 ## Install
 
 ```js
