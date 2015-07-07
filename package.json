@@ -1,7 +1,7 @@
 {
   "name": "url-menu",
   "description": "Turns a stream of text on stdin containing URLs into an interactive menu that opens the selected URL in your browser.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "bin": {
     "url-menu": "./bin/cmd.js"
   },
